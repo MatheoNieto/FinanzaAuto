@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { palette } from '@theme/palette';
+import { View } from 'react-native';
 const BottomTab = createBottomTabNavigator();
 
 export const BottomTabNavigator = ({
@@ -27,11 +28,13 @@ export const BottomTabNavigator = ({
             optionsTabScreen ?? {
               tabBarLabel: '',
               tabBarIcon: ({ color, size, focused }) => (
-                <Ionicons
-                  name={item.icon}
-                  size={25}
-                  color={focused ? palette.primary : palette.grey}
-                />
+                <View style={{ marginTop: 5 }}>
+                  <Ionicons
+                    name={item.icon}
+                    size={25}
+                    color={focused ? palette.primary : palette.grey}
+                  />
+                </View>
               ),
             }
           }
