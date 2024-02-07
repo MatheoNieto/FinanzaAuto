@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { UsersScreen, UserScreen } from '../screens';
 import { Routes, UsersStackParamsList } from './Stack.types';
+import ScreenHeaderBox from '@components/Header';
 
 const Stack = () => {
   const { Navigator, Screen } = createStackNavigator<UsersStackParamsList>();
@@ -13,7 +14,7 @@ const Stack = () => {
         name={Routes.ALL_USERS}
         component={UsersScreen}
         options={{
-          header: () => null,
+          header: () => <ScreenHeaderBox />,
         }}
       />
 
@@ -22,7 +23,7 @@ const Stack = () => {
         name={Routes.USER_DETAIL}
         component={UserScreen}
         options={{
-          header: () => null,
+          header: () => <ScreenHeaderBox />,
         }}
       />
     </Navigator>
