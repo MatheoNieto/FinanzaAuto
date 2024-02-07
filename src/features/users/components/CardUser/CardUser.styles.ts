@@ -4,6 +4,7 @@ import { palette } from '@theme/palette';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
