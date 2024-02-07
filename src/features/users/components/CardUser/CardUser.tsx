@@ -3,11 +3,18 @@ import { RESPONSE_DATA_USER } from '@core/models/user';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from '@features/users/components/CardUser/CardUser.styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+import {
+  Routes,
+  UsersStackProps,
+} from '@features/users/navigation/Stack.types';
 
 type Props = {
   user: RESPONSE_DATA_USER;
 };
 const CardUser: React.FC<Props> = ({ user }) => {
+  const navigation = useNavigation<UsersStackProps>();
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -31,7 +38,9 @@ const CardUser: React.FC<Props> = ({ user }) => {
 
         <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
           <TouchableOpacity
-            onPress={() => null}
+            onPress={() =>
+              navigation.navigate(Routes.USER_DETAIL, { userId: user.id })
+            }
             activeOpacity={1}
             style={styles.contentFooter}>
             <Text style={styles.textFooter}>Ver Detalle</Text>

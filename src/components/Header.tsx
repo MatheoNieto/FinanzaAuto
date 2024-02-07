@@ -4,6 +4,8 @@ import {
   SafeAreaInsetsContext,
   SafeAreaView,
 } from 'react-native-safe-area-context';
+import { palette } from '@theme/palette';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const ScreenHeaderBox = () => (
   <SafeAreaInsetsContext.Consumer>
@@ -13,10 +15,30 @@ const ScreenHeaderBox = () => (
         <View
           style={{
             marginTop:
-              (insets?.top ?? 0) + Platform.select({ ios: -20, default: 24 }),
+              (insets?.top ?? 0) + Platform.select({ ios: -50, default: 24 }),
             paddingVertical: Platform.select({ android: 15, ios: 0 }),
           }}>
-          <Text>Header</Text>
+          <Text
+            style={{
+              marginHorizontal: 15,
+              marginBottom: 16,
+              fontSize: 30,
+              color: palette.primary,
+              fontWeight: 'bold',
+            }}>
+            Finanzaauto
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              backgroundColor: palette.primary,
+              height: 50,
+              padding: 10,
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            }}>
+            <Ionicons name="menu-sharp" color="white" size={25} />
+          </View>
         </View>
       </SafeAreaView>
     )}
@@ -24,6 +46,7 @@ const ScreenHeaderBox = () => (
 );
 const styles = StyleSheet.create({
   shadow: {
+    height: 170,
     shadowOffset: {
       width: 0,
       height: 4,
