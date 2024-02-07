@@ -8,12 +8,16 @@ export const getDataUsers = async (userId?: string) => {
     if (userId) {
       url = endPoints.getUser.replace(':id', userId);
     }
-    const response = await generalRequest.get<RESPONSE_DATA_USER>(url, {
-      'axios-retry': {
-        retries: 3,
+    const response = await generalRequest.get<{ data: RESPONSE_DATA_USER[] }>(
+      url,
+      {
+        'axios-retry': {
+          retries: 3,
+        },
       },
-    });
-    return { success: true, response: response.data, status: response.status };
+    );
+
+    return response.data.data;
   } catch (err) {
     console.log('error: getting users', err);
   }

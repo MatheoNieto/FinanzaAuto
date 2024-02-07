@@ -1,6 +1,6 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import config from '@config';
+import config from '../../../config/config';
 
 const {
   api: { host },
@@ -11,6 +11,7 @@ const generalRequest = axios.create({
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
+    'app-id': '63473330c1927d386ca6a3a5',
   },
 });
 

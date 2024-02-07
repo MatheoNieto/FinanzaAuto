@@ -18,7 +18,7 @@
     "noEmit": true,
     "paths": {
       "@assets/*": ["src/assets/*"],
-      "@config": ["src/config"],
+      "@config": ["src/config/config"],
       "@features/*": ["src/features/*"],
       "@navigators/*": ["src/navigators/*"],
       "@routes/*": ["src/routes/*"],
